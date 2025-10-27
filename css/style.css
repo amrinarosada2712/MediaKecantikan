@@ -121,3 +121,54 @@ a{ text-decoration:none }
   background:#eef2ff; color:#111827; border-color:#e5e7eb;
   padding: .85rem 1rem; /* keep same padding to avoid jump */
 }
+
+/* === Pink–Gray–White Theme (v6) === */
+:root{
+  --brand:#ec4899;        /* pink */
+  --brand-strong:#db2777; /* deeper pink */
+  --ink:#111827;          /* gray-900 */
+  --muted:#6b7280;        /* gray-500 */
+  --line:#e5e7eb;         /* gray-200 */
+  --soft:#f9fafb;         /* gray-50 */
+}
+/* Base */
+body{ color:var(--ink); background:var(--soft); }
+a{ text-decoration:none }
+.btn-brand{ background:var(--brand); color:#fff; border-color:var(--brand); }
+.btn-brand:hover{ background:var(--brand-strong); border-color:var(--brand-strong); }
+.btn-outline-brand{ color:var(--brand); border-color:var(--brand); }
+.btn-outline-brand:hover{ background:var(--brand); color:#fff; }
+
+/* Navbar: light, with pink active link */
+.navbar{ background:#ffffff !important; border-bottom:1px solid var(--line); }
+.navbar .navbar-brand, .navbar .nav-link, .navbar .navbar-toggler{ color: var(--ink) !important; }
+.navbar .nav-link.active, .navbar .nav-link:focus, .navbar .nav-link:hover{ color: var(--brand) !important; }
+.navbar-brand span{ color:#f472b6 !important; }
+
+/* Footer */
+.footer{ background:#f3f4f6 !important; color:#374151 !important; border-top:1px solid var(--line); }
+
+/* Cards & borders */
+.card{ border-color: var(--line); }
+.card-header{ border-bottom-color: var(--line); background: #fff; }
+
+/* Sidebar menu (modern) */
+.menu-card{ background:#fff; border:1px solid var(--line); }
+.menu-title i{ color: var(--brand); }
+.menu-item{ border-bottom:1px solid var(--line); }
+.menu-item:hover{ background:#fdf2f8; border-left-color:var(--brand); }
+.menu-item.active{ background: linear-gradient(90deg,#ffe4ec,#fff); border-left-color:var(--brand); }
+.menu-item i{ color:#9ca3af; }
+.menu-item.active i, .menu-item:hover i{ color: var(--brand); }
+.menu-badge{ background:#fee2e2; color:#b91c1c; }
+
+/* Split view */
+@media (min-width:992px){
+  :root{ --nav-h:56px; --foot-h:40px; }
+  .sidebar-full{ background:#fff; border-right:1px solid var(--line); }
+  .content-area{ padding-left:24px; }
+}
+
+/* Utilities */
+.accent-bg{ background: linear-gradient(180deg,#fff,#fff0f5); }
+.accent-border{ border-color: var(--line) !important; }
