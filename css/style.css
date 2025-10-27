@@ -1,0 +1,123 @@
+
+:root{
+  --brand:#e91e63;      /* pink */
+  --brand-2:#9c27b0;    /* purple accent */
+  --fg:#111827;
+  --muted:#6b7280;
+  --footer-bg:#343a40;
+  --footer-fg:#cfd3d7;
+}
+body{color:var(--fg)}
+.navbar{background:#212529}
+.navbar .navbar-brand span{ color:#fbcfe8 }
+a{ text-decoration:none }
+.btn-brand{ background:var(--brand); color:white }
+.btn-outline-brand{ border-color:var(--brand); color:var(--brand) }
+.btn-outline-brand:hover{ background:var(--brand); color:white }
+.footer{ background:var(--footer-bg); color:var(--footer-fg) }
+.main-pad{ padding-top:72px; padding-bottom:64px } /* space for fixed header/footer */
+.card-hero img{ object-fit:cover; height:240px }
+
+/* --- Sidebar modern --- */
+:root{
+  --brand:#e91e63;
+  --brand-strong:#c2185b;
+  --ink:#111827;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --soft:#f8fafc;
+}
+.menu-card{
+  position: sticky; top: 88px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.menu-title{
+  font-weight: 700;
+  letter-spacing: .2px;
+  padding: 14px 16px;
+  color: var(--ink);
+  background: linear-gradient(180deg,#fff,#f7f7fb);
+  border-bottom: 1px solid var(--line);
+}
+.menu-title i{ color: var(--brand); margin-right: 8px; }
+.menu-item{
+  display:flex; align-items:center; gap:10px;
+  padding: 12px 14px;
+  color: var(--ink);
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid var(--line);
+  text-decoration:none;
+  background:#fff;
+  transition: .18s ease;
+}
+.menu-item:last-child{ border-bottom:0; }
+.menu-item i{ color:#9ca3af; }
+.menu-item:hover{
+  background: #fdf2f8;
+  border-left-color: var(--brand);
+}
+.menu-item:hover i{ color: var(--brand-strong); }
+.menu-item.active{
+  background: linear-gradient(90deg,#ffe4ec,#fff);
+  border-left-color: var(--brand);
+  box-shadow: inset 0 -1px 0 #f8cfe0;
+}
+.menu-item.active i{ color: var(--brand); }
+.menu-badge{
+  margin-left:auto; font-size:12px;
+  background:#fee2e2; color:#b91c1c;
+  border-radius:999px; padding:2px 8px;
+}
+@media (min-width:992px){
+  .content-area{ padding-left: 24px; }
+}
+
+/* === Split View: sidebar full height (samping-sampingan) === */
+@media (min-width: 992px){
+  :root{
+    --nav-h: 56px;     /* tinggi navbar fixed-top */
+    --foot-h: 40px;    /* tinggi footer fixed-bottom */
+    --sidebar-w: 300px;/* lebar sidebar */
+  }
+  .sidebar-full{
+    position: fixed;
+    top: var(--nav-h);
+    bottom: var(--foot-h);
+    left: 0;
+    width: var(--sidebar-w);
+    overflow: auto;
+    background: #ffffff;
+    border-right: 1px solid #e5e7eb;
+  }
+  .content-area{
+    margin-left: var(--sidebar-w);
+    padding-left: 24px;
+  }
+}
+
+/* === Fix: prevent menu item from 'growing' when active/clicked === */
+.menu-item{ box-sizing: border-box; }
+.menu-item, .menu-item:focus, .menu-item:active{
+  outline: none;
+}
+.menu-item.active{
+  /* keep padding/size identical in all states */
+  padding: 12px 14px;
+  border-left-width: 3px; /* same width as default (transparent) */
+}
+
+/* Fallback for old list-group style menus */
+.list-group.fix-stable .list-group-item{
+  padding: .85rem 1rem;
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  transition: background-color .15s ease, color .15s ease;
+}
+.list-group.fix-stable .list-group-item + .list-group-item{ margin-top:-1px; }
+.list-group.fix-stable .list-group-item.active{
+  background:#eef2ff; color:#111827; border-color:#e5e7eb;
+  padding: .85rem 1rem; /* keep same padding to avoid jump */
+}
